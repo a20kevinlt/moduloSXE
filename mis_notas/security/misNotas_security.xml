@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="mis_notas.module_category_mis_notas">
+            <field name="name">MisNotas</field>
+            <field name="description">Te permite guardar escritores y las notas que van escribiendo</field>
+        </record>
+     
+         <record model="res.groups" id="group_mis_notas_usuario">
+            <field name="name">Usuario</field>
+            <field name="category_id" ref="mis_notas.module_category_mis_notas"></field>
+            <field name="comment" >Usuarios que añaden notas</field>
+        </record>
+
+        <record model="res.groups" id="group_mis_notas_director">
+            <field name="name">Director</field>
+            <field name="category_id" ref="mis_notas.module_category_mis_notas"></field>
+            <field name="comment" >Usuarios que añaden notas y escritores</field>
+            <field name="implied_ids" eval="[(4,ref('group_mis_notas_usuario'))]"></field>
+            <field name="users" eval="[(4,ref('base.user_root')),(4,ref('base.user_admin'))]"></field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mis_notas_nota_usuario,mis_notas.nota.usuario,model_mis_notas_nota,mis_notas.group_mis_notas_usuario,1,1,1,1
+access_mis_notas_escritor_usuario,mis_notas.escritor.usuario,model_mis_notas_escritor,mis_notas.group_mis_notas_usuario,1,0,0,0
+access_mis_notas_escritor_director,mis_notas.escritor.director,model_mis_notas_escritor,mis_notas.group_mis_notas_director,1,1,1,1

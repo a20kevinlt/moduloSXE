@@ -1,0 +1,162 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="mis_notas.list">
+      <field name="name">misNotas list</field>
+      <field name="model">mis_notas.mis_notas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+
+-->
+    <!-- actions opening views on models -->
+
+    <!-- <record model="ir.actions.act_window" id="mis_notas.action_window">
+      <field name="name">misNotas window</field>
+      <field name="res_model">mis_notas.mis_notas</field>
+      <field name="view_mode">tree,form</field>
+    </record> -->
+
+
+    <!-- server action to the one above -->
+
+    <!-- <record model="ir.actions.server" id="mis_notas.action_server">
+      <field name="name">misNotas server</field>
+      <field name="model_id" ref="model_mis_notas_mis_notas"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record> -->
+
+
+    <!-- Top menu item -->
+
+    <!-- <menuitem name="misNotas" id="mis_notas.menu_root"/> -->
+
+    <!-- menu categories -->
+
+    <!-- <menuitem name="Menu 1" id="mis_notas.menu_1" parent="mis_notas.menu_root"/>
+    <menuitem name="Menu 2" id="mis_notas.menu_2" parent="mis_notas.menu_root"/> -->
+
+    <!-- actions -->
+<!-- 
+    <menuitem name="List" id="mis_notas.menu_1_list" parent="mis_notas.menu_1"
+              action="mis_notas.action_window"/>
+    <menuitem name="Server to list" id="mis_notas" parent="mis_notas.menu_2"
+              action="mis_notas.action_server"/> -->
+
+
+
+
+
+
+
+ <record model="ir.ui.view" id="mis_notas.escritor_list_view">
+      <field name="name">mis_notas.escritor.view.tree</field>
+      <field name="model">mis_notas.escritor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="surname"/>
+          <field name="sinCumplir"/>
+        </tree>
+      </field>
+    </record>
+
+
+ <record model="ir.ui.view" id="mis_notas.nota_list_view">
+      <field name="name">mis_notas.nota.view.tree</field>
+      <field name="model">mis_notas.nota</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="texto"/>
+          <field name="fecha"/>
+          <field name="dias"/>
+          <field name="cumplido"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+
+<record id="notas_kanban_view" model="ir.ui.view">
+            <field name="name">mis_notas.nota.view.kanban</field>
+            <field name="model">mis_notas.nota</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="fecha"/>
+                    <field name="cumplido"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                   <ul>
+                                      <li>
+                                        Nombre: <field name="name"/>
+                                      </li>
+                                      <li>
+                                        Fecha: <field name="fecha"/>
+                                      </li>
+                                      <li>
+                                        Cumplido: <field name="cumplido"/>
+                                      </li>
+                                   </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+
+
+
+    <record model="ir.actions.act_window" id="mis_notas.escritor_action_window">
+      <field name="name">Escritores</field>
+      <field name="res_model">mis_notas.escritor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <record model="ir.actions.act_window" id="mis_notas.nota_action_window">
+      <field name="name">Notas</field>
+      <field name="res_model">mis_notas.nota</field>
+      <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+
+
+<!-- Top menu item -->
+
+    <menuitem name="misNotas" id="mis_notas.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Escritores" id="mis_notas.escritor_menu" parent="mis_notas.menu_root" action="mis_notas.escritor_action_window"/>
+    <menuitem name="Notas" id="mis_notas.nota_menu_" parent="mis_notas.menu_root" action="mis_notas.nota_action_window"/>
+
+   
+
+
+
+
+
+  </data>
+</odoo>
