@@ -11,18 +11,18 @@ class escritor(models.Model):
 
     name=fields.Char(string="Nombre",required=True)
     surname=fields.Char(string="Apellidos")
-    sinCumplir=fields.Integer("Sin cumplir",compute="_get_SinCumplir")
+   # sinCumplir=fields.Integer("Sin cumplir",compute="_get_SinCumplir",default=0)
 
     nota_ids=fields.One2many("mis_notas.nota","escritor_id",string="Notas")
 
-    @api.depends("sinCumplir")
-    def _get_SinCumplir(self):
-     for escritor in self:
-       for nota in escritor.nota_ids:
-           if nota.cumplido:
-               escritor.sinCumplir=escritor.sinCumplir
-           else:
-               escritor.sinCumplir+=1    
+   # @api.depends("sinCumplir")
+    #def _get_SinCumplir(self):
+     #for escritor in self:
+      # for nota in escritor.nota_ids:
+       #    if nota.cumplido==False:
+        #        escritor.sinCumplir+=1
+           
+                  
 
 
 
